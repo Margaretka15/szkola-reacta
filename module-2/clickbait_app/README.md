@@ -1,3 +1,3 @@
 # Clickbait App
 
-This is first task from module 2.
+This is the first task from module 2.
