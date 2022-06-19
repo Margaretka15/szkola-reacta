@@ -1,10 +1,19 @@
-import Generator from './Generator';
 import styles from "./styles";
-function App(){
-    return(
-        <div style ={styles.container}>
+import {useState} from "react";
+import {v4 as uuidv4} from 'uuid';
+
+function App() {
+    const [uuid, setUuid] = useState('');
+
+    const generateUuid = () => {
+        setUuid(() => uuidv4());
+    }
+
+    return (
+        <div style={styles.container}>
             <h1>UUID generator</h1>
-            <Generator/>
+            <div style={styles.uuid}>{uuid}</div>
+            <button onClick={generateUuid} style={styles.button}>Generate UUID</button>
         </div>
     );
 }
