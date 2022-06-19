@@ -1,12 +1,14 @@
-import Timer from "./Timer";
+import TimerF from "./TimerF";
+import TimerC from "./TimerC";
 
 function App() {
-  return (
-      <div>
-        <Timer/>
-      </div>
+    return (
+        <div>
+            <TimerF/>
+            <TimerC/>
+        </div>
 
-  );
+    );
 }
 
 export default App;
