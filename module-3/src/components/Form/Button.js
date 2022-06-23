@@ -1,16 +1,11 @@
 import React from "react";
 
-const colorsDictionary = {
-    "carrot": "#e67e22",
-    "purple": "#8e44ad",
-    "clouds": "#95a5a6",
-    "red": "#e74c3c"
-}
+import colors from "../../styles/colors";
 
 function Button({children, bgColor, color}) {
     const styles = {
-        backgroundColor: colorsDictionary[bgColor],
-        color: colorsDictionary[color]
+        backgroundColor: colors[bgColor],
+        color: colors[color]
     }
 
     return (
