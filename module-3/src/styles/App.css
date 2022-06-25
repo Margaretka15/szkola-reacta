@@ -1,0 +1,19 @@
+.app{
+    font-family:  "Arial", sans-serif;
+}
+
+a {
+    /*normalizacja anchora*/
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 10px 0;
+    padding: 0;
+    border-width: 0;
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: inherit;
+    text-decoration: none;
+
+}
