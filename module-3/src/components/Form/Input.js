@@ -3,9 +3,9 @@ import colors from "../../styles/colors";
 function Input({bgColor, color, borderSize, borderRadius, borderColor}) {
 
     const styles = {
-        backgroundColor: bgColor,
-        color: color,
-        border: `${borderSize} solid ${borderColor}`,
+        backgroundColor: colors[bgColor],
+        color: colors[color],
+        border: `${borderSize} solid ${colors[borderColor]}`,
         borderRadius: borderRadius
     }
 
