@@ -1,0 +1,22 @@
+.employee{
+    display: flex;
+    background-color: #ffb8b8;
+    margin-bottom: 10px;
+
+
+}
+
+.employee__name{
+    width: 30%;
+    padding: 10px;
+
+}
+.employee__name:hover{
+    cursor: pointer;
+}
+.employee__details{
+    width: 65%;
+    background-color: #e5e5ff;
+    margin-left: auto;
+    padding: 10px;
+}
