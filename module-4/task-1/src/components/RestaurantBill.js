@@ -1,9 +1,18 @@
 import React, {useState} from "react";
 
+function useInput(initialValue=''){
+    const[value, setValue] = useState('');
+    const handleChange = (event) => {
+        setValue(event.target.value);
+    }
+    return [value, handleChange];
+}
+
 function RestaurantBill() {
 
-    const [amount, setAmount] = useState(0);
-    const [tip, setTip] = useState(0);
+    const [amount, onAmountChange] = useInput(0);
+    const [tip, onTipChange] = useInput(0);
+
     const [finalAmount, setFinalAmount] = useState(0);
     const [isFinalAmountCalculated, setIsFinalAmountCalculated] = useState(false);
 
@@ -11,17 +20,9 @@ function RestaurantBill() {
         event.preventDefault();
     }
     const handleClick = () => {
-        setFinalAmount(amount + amount * tip * 0.01);
+        setFinalAmount(parseFloat(amount) + parseFloat(amount) * tip * 0.01);
         setIsFinalAmountCalculated(true);
         console.log(finalAmount.toFixed(2));
-    }
-
-    const onAmountChange = (event) => {
-        setAmount(parseInt(event.target.value));
-    }
-
-    const onTipChange = (event) => {
-        setTip(parseInt(event.target.value));
     }
 
     if (isFinalAmountCalculated)
