@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
-function useInput(initialValue=''){
-    const[value, setValue] = useState('');
+function useInput(initialValue = '') {
+    const [value, setValue] = useState(initialValue);
     const handleChange = (event) => {
         setValue(event.target.value);
     }
@@ -18,16 +18,15 @@ function RestaurantBill() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-    }
-    const handleClick = () => {
-        setFinalAmount(parseFloat(amount) + parseFloat(amount) * tip * 0.01);
+        setFinalAmount(calculateFinalAmount());
         setIsFinalAmountCalculated(true);
-        console.log(finalAmount.toFixed(2));
     }
-
-    if (isFinalAmountCalculated)
-    {
-        return   <p>Wartość rachunku wraz z napiwkiem wynosi {finalAmount.toFixed(2)}</p>
+    const calculateFinalAmount = () => {
+        const taxValue = 0.07;
+        return parseFloat(amount) * (1 + taxValue) + parseFloat(amount) * tip * 0.01;
+    }
+    if (isFinalAmountCalculated) {
+        return <p>Wartość rachunku wraz z napiwkiem wynosi {finalAmount.toFixed(2)}</p>
     }
 
     return (
@@ -41,8 +40,9 @@ function RestaurantBill() {
                 <option>20</option>
                 <option>25</option>
             </select>
-            <button type="submit" onClick={handleClick}>Przelicz</button>
+            <button type="submit">Przelicz</button>
         </form>
     );
 }
+
 export default RestaurantBill;
