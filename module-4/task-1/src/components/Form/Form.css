@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+.not-valid::before{
+    content: "To pole jest wymagane";
+    display: block;
+    font-size: 0.8rem;
+    color: red;
+}
+
+.not-valid input{
+    border: 1px red solid;
+}
