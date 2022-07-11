@@ -20,7 +20,7 @@ function Form() {
     const lastnameInputWrapper = useRef();
     const genderRadioWrapper = useRef();
     const bioTextareaWrapper = useRef();
-    const termsAcceptedCheckbox = useRef();
+    const termsAcceptedCheckboxWrapper = useRef();
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
@@ -54,9 +54,9 @@ function Form() {
 
         if (!termsAccepted) {
             isValid = false;
-            termsAcceptedCheckbox.current.className = "not-valid";
+            termsAcceptedCheckboxWrapper.current.className = "not-valid";
         } else {
-            termsAcceptedCheckbox.current.className = "valid";
+            termsAcceptedCheckboxWrapper.current.className = "valid";
         }
 
         return isValid;
@@ -105,7 +105,7 @@ function Form() {
                     <label htmlFor="other">Inna</label>
                 </div>
             </div>
-            <div ref={termsAcceptedCheckbox}>
+            <div ref={termsAcceptedCheckboxWrapper}>
                 <input type="checkbox" id="accept_terms" onChange={(e) => onTermsAcceptedChange(e.target.checked)}
                        checked={termsAccepted}/>
                 <label htmlFor="accept_terms">Wyrażam zgodę na przetwarzanie moich danych osobowych oraz akceptuję

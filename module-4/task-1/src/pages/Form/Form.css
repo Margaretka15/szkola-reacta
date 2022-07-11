@@ -30,3 +30,10 @@
     padding: 30px;
     text-align: center;
 }
+.error-message {
+    color: red;
+    font-size: .8rem;
+}
+.error-message + input, .error-message + textarea {
+    border: red 1px solid;
+}
