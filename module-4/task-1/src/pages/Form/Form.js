@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 
 
-import './Form.css';
+import '../../styles/Form.css';
 import useInputHook from "../../hooks/useInputHook";
 
 function Form() {
