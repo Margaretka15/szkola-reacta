@@ -14,6 +14,7 @@ function Form() {
     const [termsAccepted, onTermsAcceptedChange] = useState(false);
     const [gender, onGenderChange] = useState('');
 
+    const [formIsValid, setFormIsValid] = useState(false);
 
     const nameInputWrapper = useRef();
     const lastnameInputWrapper = useRef();
@@ -21,18 +22,16 @@ function Form() {
     const bioTextareaWrapper = useRef();
     const termsAcceptedCheckbox = useRef();
 
-    const successMessage = useRef();
-
     const handleOnSubmit = (event) => {
         event.preventDefault();
 
         if (isFormValid()) {
+            setFormIsValid(true);
             clearName();
             clearLastname();
             onGenderChange('');
             clearBio();
             onTermsAcceptedChange(false);
-            successMessage.current.style.display = 'block';
         }
     }
 
@@ -115,9 +114,9 @@ function Form() {
 
 
             <button type="submit">Wyślij</button>
-            <div ref={successMessage} className="success-message">
+            {formIsValid && <div className="success-message">
                 Dziękujemy, Twój formularz został wysłany!
-            </div>
+            </div>}
         </form>
     )
 }
