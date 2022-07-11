@@ -4,19 +4,6 @@ import React, {useRef, useState} from "react";
 import './Form.css';
 import useInputHook from "../../hooks/useInputHook";
 
-const styles = {
-    display: 'flex',
-    flexDirection: 'column',
-    width: 300,
-    marginTop: 20,
-
-    input: {
-        marginBottom: 5,
-        width: '100%'
-    }
-
-}
-
 function Form() {
 
     const [name, onNameChange, clearName] = useInputHook('');
@@ -24,7 +11,7 @@ function Form() {
 
     const [bio, onBioChange, clearBio] = useInputHook('');
 
-    const [termsAccepted, onTermsAcceptedChange] = useState(false); /// co z tym xD
+    const [termsAccepted, onTermsAcceptedChange] = useState(false);
     const [gender, onGenderChange] = useState('');
 
 
@@ -36,18 +23,10 @@ function Form() {
 
     const successMessage = useRef();
 
-    const hiddenMessageStyle = {
-        display: 'none',
-        color: 'green',
-        padding: 30,
-        textAlign: 'center'
-    }
-
     const handleOnSubmit = (event) => {
         event.preventDefault();
 
         if (isFormValid()) {
-            console.log("valid");
             clearName();
             clearLastname();
             onGenderChange('');
@@ -85,20 +64,22 @@ function Form() {
     }
 
     return (
-        <form style={styles} onSubmit={handleOnSubmit}>
+        <form className="form" onSubmit={handleOnSubmit}>
             <p>Witaj, powiedz nam coś o sobie!</p>
 
             <div ref={nameInputWrapper}>
-                <input style={styles.input} type="text" placeholder="Wpisz swoje imię"
+                <input className="form__input" type="text" placeholder="Wpisz swoje imię"
                        onChange={onNameChange} value={name}/>
             </div>
 
             <div ref={lastnameInputWrapper}>
-                <input style={styles.input} type="text" placeholder="Wpisz swoje nazwisko" onChange={onLastnameChange} value={lastname}/>
+                <input className="form__input" type="text" placeholder="Wpisz swoje nazwisko"
+                       onChange={onLastnameChange}
+                       value={lastname}/>
             </div>
 
             <div ref={bioTextareaWrapper}>
-                <textarea style={styles.input} name="bio"  rows="10" placeholder="Napisz coś o sobie!"
+                <textarea className="form__input" name="bio" rows="10" placeholder="Napisz coś o sobie!"
                           onChange={onBioChange} value={bio}/>
             </div>
 
@@ -134,7 +115,7 @@ function Form() {
 
 
             <button type="submit">Wyślij</button>
-            <div ref={successMessage} style={hiddenMessageStyle}>
+            <div ref={successMessage} className="success-message">
                 Dziękujemy, Twój formularz został wysłany!
             </div>
         </form>

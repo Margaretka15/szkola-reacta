@@ -1,6 +1,6 @@
 import React from "react";
-import RestaurantBill from "./components/RestaurantBill/RestaurantBill";
-import {Form} from "./components/Form";
+import RestaurantBill from "./pages/RestaurantBill/RestaurantBill";
+import {Form} from "./pages/Form";
 function App() {
     return (
         <div className="App">
