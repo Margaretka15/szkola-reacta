@@ -1,7 +1,6 @@
 import React from "react";
 import '../../styles/Form.css';
 import {useForm} from "react-hook-form";
-import {logDOM} from "@testing-library/react";
 
 function FormWithUseForm() {
     const {register, handleSubmit, reset, formState: {errors, isSubmitSuccessful}} = useForm();
