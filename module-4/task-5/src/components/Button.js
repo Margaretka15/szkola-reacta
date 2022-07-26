@@ -6,9 +6,9 @@ const style = {
     "backgroundColor": "blue"
 }
 
-const Button = forwardRef(({onMouseEnter, onMouseLeave}, ref) =>  {
+const Button = forwardRef((props, ref) =>  {
     return (
-        <button ref={ref} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>Hey ya</button>
+        <button ref={ref} style={style}>Hey ya</button>
     );
 });
 

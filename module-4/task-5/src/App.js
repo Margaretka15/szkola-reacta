@@ -15,8 +15,8 @@ function App() {
     }
 
     return (
-        <div className="App">
-         <Button ref={ref} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}/>
+        <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+            <Button ref={ref}/>
         </div>
     );
 }
