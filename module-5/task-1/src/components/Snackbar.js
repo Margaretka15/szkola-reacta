@@ -21,9 +21,6 @@ function Snackbar({title, message, time = "5", showSnackbar}) {
       <p className="snackbar__content"> {message} </p>
     </div>
   )
-
-
 }
-
 
 export default Snackbar;
