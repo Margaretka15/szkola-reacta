@@ -1,0 +1,28 @@
+.snackbar {
+    background-color: #383838;
+    color: white;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    padding: 10px 20px;
+    width: 250px;
+    animation: fade-in;
+    animation-duration: .5s;
+
+}
+
+.snackbar__title {
+    font-size: .8rem;
+}
+
+.snackbar__content {
+    font-size: .7rem;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
