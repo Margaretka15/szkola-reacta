@@ -1,0 +1,32 @@
+.nav-menu {
+    display: flex;
+    font-family: Arial, sans-serif;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.nav-menu__link {
+    font-size: .9rem;
+    padding: 10px 10px 5px;
+    border-bottom: 1px #8d8d8d solid;
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 150px;
+}
+.nav-menu__link:hover{
+    border-bottom: 1px #577dfd solid;
+    color: #577dfd;
+    transition-duration: .1s;
+}
+.nav-menu__button {
+    cursor: pointer;
+
+}
+.nav-menu__button:hover{
+    color: #577dfd;
+}
+
+a  {
+    all: unset;
+}
