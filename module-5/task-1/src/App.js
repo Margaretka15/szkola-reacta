@@ -35,7 +35,11 @@ function App() {
       <button onClick={showSnackbar}>Pokaż snackbar</button>
 
       {isSnackbarShown && (
-        <Snackbar title="Sukces!" time="1" message="To jest wiadomość!" showSnackbar={setIsSnackbarShown}/>
+        <Snackbar title="Sukces!"
+                  time="3"
+                  type="success"
+                  message="To jest wiadomość!"
+                  showSnackbar={setIsSnackbarShown}/>
       )}
     </div>
   );

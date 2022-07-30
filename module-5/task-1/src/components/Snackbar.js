@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import './Snackbar.css';
 
-function Snackbar({title, message, time = "5", showSnackbar}) {
+function Snackbar({title, message, time = "5", showSnackbar, type}) {
 
   const timeOfDisplay = parseInt(time) * 1000;
 
@@ -16,9 +16,9 @@ function Snackbar({title, message, time = "5", showSnackbar}) {
   )
 
   return (
-    <div className="snackbar">
-      <div className="snackbar__title"> {title} </div>
-      <p className="snackbar__content"> {message} </p>
+    <div className={`snackbar snackbar--${type}`}>
+      <div className={`snackbar__title`}> {title} </div>
+      <p className={`snackbar__content`}> {message} </p>
     </div>
   )
 }
