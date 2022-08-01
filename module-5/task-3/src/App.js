@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import NavMenu from "./components/NavMenu";
 import Home from "./pages/Home";
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Link, NavLink, Route, Routes} from "react-router-dom";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -16,6 +16,9 @@ function App() {
   const toggleMenu = () => {
     setIsMenuShown(isMenuShown => !isMenuShown);
   }
+  const setStyleForActive = (isActive) => {
+    return isActive ? "nav-menu__link nav-menu__link--active" : "nav-menu__link";
+  }
 
   return (
     <div>
@@ -25,10 +28,10 @@ function App() {
         </div>
 
         {
-          isMenuShown && (<NavMenu>
-            <Link to="/" className="nav-menu__link">Home</Link>
-            <Link to="about" className="nav-menu__link">About</Link>
-            <Link to="contact" className="nav-menu__link">Contact</Link>
+          isMenuShown && (<NavMenu toggleMenu={toggleMenu}>
+            <NavLink to="/" className={({isActive}) => setStyleForActive(isActive)}>Home</NavLink>
+            <NavLink to="about" className={({isActive}) => setStyleForActive(isActive)}>About</NavLink>
+            <NavLink to="contact" className={({isActive}) => setStyleForActive(isActive)}>Contact</NavLink>
           </NavMenu>)
         }
         <Routes>

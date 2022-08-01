@@ -14,6 +14,12 @@
     cursor: pointer;
     width: 150px;
 }
+
+.nav-menu__link--active{ border-bottom: 1px #577dfd solid;
+color: #577dfd;
+transition-duration: .1s;
+    font-weight: bold;
+}
 .nav-menu__link:hover{
     border-bottom: 1px #577dfd solid;
     color: #577dfd;
@@ -21,6 +27,7 @@
 }
 .nav-menu__button {
     cursor: pointer;
+    font-size: 1.5rem;
 
 }
 .nav-menu__button:hover{
