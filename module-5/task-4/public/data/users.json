@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "name": "Joanna",
+      "lastname": "Pająk",
+      "age": 15
+    },
+    {
+      "name": "Patryk",
+      "lastname": "Grzebieniak",
+      "age": 20
+    },
+    {
+      "name": "Paulina",
+      "lastname": "Grzebieniowska",
+      "age": 19
+    },
+    {
+      "name": "Krzysztof",
+      "lastname": "Pająk",
+      "age": 26
+    },
+    {
+      "name": "Wiktor",
+      "lastname": "Kot",
+      "age": 28
+    },
+    {
+      "name": "Joanna",
+      "lastname": "Kotek",
+      "age": 30
+    }
+  ]
+}

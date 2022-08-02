@@ -1,0 +1,18 @@
+.users-list {
+    margin: 20px 10px;
+    min-width: 250px;
+}
+
+.users-list__title{
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+.users-list__item {
+    font-size: .8rem;
+    color: #2a2a2a;
+    margin-bottom: 10px;
+    background-color: #d5d5d5;
+    padding: 10px;
+
+
+}
