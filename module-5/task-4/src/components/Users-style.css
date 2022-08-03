@@ -1,18 +1,51 @@
+.nav-link {
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 10px;
+    border-bottom: 1px solid #485939;
+    display: block;
+    width: 150px;
+}
+
 .users-list {
     margin: 20px 10px;
     min-width: 250px;
 }
 
-.users-list__title{
+.users-list__title {
     font-size: 1.1rem;
     margin-bottom: 5px;
 }
+
 .users-list__item {
     font-size: .8rem;
     color: #2a2a2a;
     margin-bottom: 10px;
     background-color: #d5d5d5;
     padding: 10px;
+    display: block;
+    cursor: pointer;
+}
 
+.user-card {
+    background-color: #e5efe3;
+    border: 1px solid #a6bea1;
+    border-radius: 10px;
+    padding: 20px;
 
+}
+
+.user-card__image {
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 auto 10px;
+    display: block;
+}
+
+.user-card__header {
+    font-weight: bold;
+}
+
+.user-card__content {
+    font-size: .9rem;
 }

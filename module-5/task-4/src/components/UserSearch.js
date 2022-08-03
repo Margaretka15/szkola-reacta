@@ -11,9 +11,12 @@ function UserSearch({setQuery}) {
     }
   }
 
-  const handleOnClick = () => {
+  const resetSearch = () => {
     setValue('');
     setQuery('');
+  }
+  const handleSearch = () => {
+    setQuery(value);
   }
 
   return (
@@ -26,7 +29,8 @@ function UserSearch({setQuery}) {
              placeholder="Wyszukaj"
              onChange={(e) => setValue(e.target.value)}
              onKeyDown={handleKeyDown}/>
-      <button onClick={handleOnClick}>Reset</button>
+      <button onClick={handleSearch}>Search</button>
+      <button onClick={resetSearch}>Reset</button>
     </div>
   )
 }

@@ -8,7 +8,7 @@ function UserList ({data, search}) {
   return (
     <div className="users-list">
       <div className="users-list__title">Użytkownicy: </div>
-      {search(data).map((item, index) => <User key={index} userData={item}/>)}
+      {search(data).map((item) => <User key={item.id} userData={item}/>)}
     </div>
   )
 }

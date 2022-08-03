@@ -1,15 +1,17 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 function User({userData}) {
   const {
     name,
     lastname,
-    age,
     ...otherProps
   } = userData;
 
   return (
-      <div className="users-list__item">{name} {lastname}, wiek: {age}</div>
+    <NavLink to="user-profile" state={{myState: userData}} className="users-list__item">
+      {name} {lastname}
+    </NavLink>
   )
 }
 
