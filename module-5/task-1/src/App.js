@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import Dialog from "./components/Dialog";
-import Snackbar from "./components/Snackbar";
+import Dialog from "./components/Dialog/Dialog";
+import SnackbarComponent from "./components/Snackbar/SnackbarComponent";
 
 function App() {
 
@@ -17,12 +17,6 @@ function App() {
     setIsDialogShown(false);
   }
 
-  const [isSnackbarShown, setIsSnackbarShown] = useState(false);
-
-  const showSnackbar = () => {
-    setIsSnackbarShown(() => true);
-  }
-
   return (
     <div className="App">
       <button onClick={openDialog}>Pokaż okienko</button>
@@ -32,15 +26,10 @@ function App() {
               handleClose={confirmDialog}
       />
 
-      <button onClick={showSnackbar}>Pokaż snackbar</button>
-
-      {isSnackbarShown && (
-        <Snackbar title="Sukces!"
-                  time="3"
-                  type="success"
-                  message="To jest wiadomość!"
-                  showSnackbar={setIsSnackbarShown}/>
-      )}
+      <SnackbarComponent title="Sukces!"
+                         time="2"
+                         type="success"
+                         message="To jest wiadomość!" />
     </div>
   );
 
