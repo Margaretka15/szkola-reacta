@@ -1,0 +1,24 @@
+.form {
+    font-family: Arial, sans-serif;
+
+}
+.form__message {
+    font-size: .7rem;
+
+}
+.form__message--correct {
+    color: #79b479;
+}
+
+.form__message--warning {
+    color: #ff3b3b;
+}
+
+.form__input {
+    padding: 0 5px;
+    margin-bottom: 5px;
+
+}
+.form__label {
+    display: block;
+}
