@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+.form__wrapper {
+    margin: 20px;
+    padding: 20px;
+    background-color: #eaeaea;
+    width: 400px;
+    min-height: 250px;
+    position: relative;
+
+}
+
+.multi-step-form {
+
+}
+.button__wrapper::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.button__wrapper {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+
+.form__navigation-button{
+    width: 60px;
+}
+
+.form__navigation-button--back {
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.form__navigation-button--next {
+    position: absolute;
+    bottom: 0;
+    right:  40px;
+}
+
+.summary{
+    display: flex;
+}
+.summary__button {
+    height: 20px;
+}
