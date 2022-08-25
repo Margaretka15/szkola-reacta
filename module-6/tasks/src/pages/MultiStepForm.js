@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
-import {AgeStep, TextInputStep, HobbyStep, Summary} from "../components/MultiStepForm/Steps";
+import {NumberInputStep, TextInputStep, SelectInputStep, Summary} from "../components/MultiStepForm/Steps";
+import FormButton from "../components/MultiStepForm/FormButton";
 
 function MultiStepForm() {
 
@@ -12,6 +13,8 @@ function MultiStepForm() {
 
   const [stepNumber, setStepNumber] = useState(1);
 
+  const [isFormSend, setIsFormSend] = useState(false);
+
   const handleChange = (event) => {
     const {name, value} = event.target;
     setFormValues({
@@ -22,7 +25,6 @@ function MultiStepForm() {
 
   const totalNumberOfSteps = 4;
 
-  /// a może lepiej canGoToNextStep i canGoToPreviousStep trzymać w stanie?
   const canGoToNextStep = () => {
     return (stepNumber < totalNumberOfSteps)
   }
@@ -40,7 +42,10 @@ function MultiStepForm() {
     }
   }
   const sendData = () => {
-    console.log("Dane zostały wysłane", formValues)
+   if(!isFormSend) {
+     console.log("Dane zostały wysłane", formValues);
+   }
+    setIsFormSend(true);
   }
 
   const handleSubmit = (event) => {
@@ -50,29 +55,31 @@ function MultiStepForm() {
   }
   const stepsToDisplay = {
     1: <TextInputStep onChange={handleChange} value={formValues.name} name="name" id="name" label="Podaj imię"/>,
-    2: <AgeStep onChange={handleChange} value={formValues.age}/>,
-    3: <HobbyStep onChange={handleChange} value={formValues.hobby}/>,
-    4: <Summary sendData={sendData} values={formValues}/>
+    2: <NumberInputStep onChange={handleChange} value={formValues.age} name="age" id="age" label="Podaj wiek" min="1" max="100"/>,
+    3: <SelectInputStep onChange={handleChange} value={formValues.hobby} name="hobby" id="hobby"
+                        label="Wybierz swoje zainteresowania"/>,
+    4: <Summary values={formValues} isSend={isFormSend}/>
   }
 
   return (
     <div className="form__wrapper">
-      <h2>Step {stepNumber}</h2>
+      <h2 className={"form__title"}>Krok {stepNumber}</h2>
       <form className={"multi-step-form"} onSubmit={handleSubmit}>
 
         {stepsToDisplay[stepNumber]}
 
         <div className="button__wrapper">
           {canGoToPreviousStep() &&
-          <button className={"form__navigation-button form__navigation-button--back"}
-                  type={"button"}
-                  onClick={goToPreviousStep}>Wstecz</button>}
+          <FormButton position="left" label="Wstecz" handleClick={goToPreviousStep}/>}
 
-          {canGoToNextStep() &&
-          <button className={"form__navigation-button form__navigation-button--next"}
-                  type={"button"} onClick={goToNextStep}>Dalej</button>}
-
+          {
+            canGoToNextStep() ?
+              <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>
+              :
+              <FormButton position="right" label="Wyślij" handleClick={sendData}/>
+          }
         </div>
+
 
 
       </form>

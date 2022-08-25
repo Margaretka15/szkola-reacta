@@ -9,6 +9,7 @@ function InputWrapper(props) {
     password,
     handleValidation,
     id,
+    value,
     onChange
   } = props;
 
@@ -21,6 +22,7 @@ function InputWrapper(props) {
              onBlur={handleValidation}
              onChange={onChange}
              name={name}
+             value={value}
              className="form__input"/>
     </div>
   )
