@@ -26,7 +26,15 @@ function SelectInputStep({onChange, value, label, id, name}) {
   return (
     <div className="input__wrapper">
       <label htmlFor={id}>{label}</label>
-      <input type={"text"} onChange={onChange} id={id} name={name} value={value}/>
+      <select onChange={onChange} id={id} name={name} value={value}>
+        <option disabled selected value="">---</option>
+        <option value="sport">sport</option>
+        <option value="sztuka">sztuka</option>
+        <option value="muzyka">muzyka</option>
+        <option value="filmy">filmy</option>
+        <option value="książki">książki</option>
+        <option value="kajaki">kajaki</option>
+      </select>
     </div>
 
   )

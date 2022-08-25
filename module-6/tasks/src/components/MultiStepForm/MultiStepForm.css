@@ -10,8 +10,7 @@
     border: 1px solid #626262;
     box-shadow: 2px 2px 5px rgba(140, 140, 140, 0.5);
     min-height: 250px;
-    height: 1px;
-
+    height: 1px;  /* hehe czitowanie */
     display: flex;
     flex-direction: column;
 
@@ -21,9 +20,13 @@
     text-align: center;
 }
 
-.input__wrapper input {
+.input__wrapper input, .input__wrapper select {
     display: block;
-}
+    width: 100%;
+    margin-top: 10px;
+    height: 40px;
+    padding: 0 10px;
+    }
 
 .multi-step-form {
     height: 100%;
@@ -33,7 +36,8 @@
 }
 
 .form__navigation-button {
-    width: 60px;
+    width: fit-content;
+    padding: 0 10px;
 }
 
 .form__navigation-button--left {

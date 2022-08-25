@@ -5,11 +5,13 @@ import FormButton from "../components/MultiStepForm/FormButton";
 
 function MultiStepForm() {
 
-  const [formValues, setFormValues] = useState({
+  const initialState = {
     name: "",
     hobby: "",
     age: ""
-  })
+  }
+
+  const [formValues, setFormValues] = useState(initialState);
 
   const [stepNumber, setStepNumber] = useState(1);
 
@@ -42,9 +44,9 @@ function MultiStepForm() {
     }
   }
   const sendData = () => {
-   if(!isFormSend) {
-     console.log("Dane zostały wysłane", formValues);
-   }
+    if (!isFormSend) {
+      console.log("Dane zostały wysłane", formValues);
+    }
     setIsFormSend(true);
   }
 
@@ -53,12 +55,47 @@ function MultiStepForm() {
     /// validate data
     sendData();
   }
+
+  const resetForm = () => {
+    setStepNumber(1);
+    setFormValues(initialState);
+    setIsFormSend(false);
+  }
+
   const stepsToDisplay = {
     1: <TextInputStep onChange={handleChange} value={formValues.name} name="name" id="name" label="Podaj imię"/>,
-    2: <NumberInputStep onChange={handleChange} value={formValues.age} name="age" id="age" label="Podaj wiek" min="1" max="100"/>,
+    2: <NumberInputStep onChange={handleChange} value={formValues.age} name="age" id="age" label="Podaj wiek" min="1"
+                        max="100"/>,
     3: <SelectInputStep onChange={handleChange} value={formValues.hobby} name="hobby" id="hobby"
                         label="Wybierz swoje zainteresowania"/>,
     4: <Summary values={formValues} isSend={isFormSend}/>
+  }
+
+  const displayButtons = () => {
+    /// ta funkcja jest trochę nieczytelna, ale w sumie nwm jak to lepiej zrobić,
+    // bo trochę warunków jednak jest tu potrzebnych :/
+    if (canGoToNextStep()) {
+      if (canGoToPreviousStep()) {
+        return (<>
+          <FormButton position="left" label="Wstecz" handleClick={goToPreviousStep}/>
+          <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>
+        </>)
+
+      }
+      return <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>;
+    } else {
+      if (isFormSend) {
+        return <FormButton position="right" label="Wypełnij ponownie" handleClick={resetForm}/>;
+      }
+      if (canGoToPreviousStep()) {
+        return (<>
+            <FormButton position="left" label="Wstecz" handleClick={goToPreviousStep}/>
+            <FormButton position="right" label="Wyślij" handleClick={sendData}/>
+          </>
+        )
+      }
+    }
+
   }
 
   return (
@@ -69,17 +106,8 @@ function MultiStepForm() {
         {stepsToDisplay[stepNumber]}
 
         <div className="button__wrapper">
-          {canGoToPreviousStep() &&
-          <FormButton position="left" label="Wstecz" handleClick={goToPreviousStep}/>}
-
-          {
-            canGoToNextStep() ?
-              <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>
-              :
-              <FormButton position="right" label="Wyślij" handleClick={sendData}/>
-          }
+          {displayButtons()}
         </div>
-
 
 
       </form>
