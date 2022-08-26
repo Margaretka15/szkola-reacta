@@ -1,0 +1,23 @@
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+* {
+    font-family: Arial, sans-serif;
+}
+
+.button {
+    padding: 5px;
+    display: block;
+    background-color: #57549a;
+    color: white;
+}
+
+.form-container {
+
+}
