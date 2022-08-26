@@ -6,7 +6,6 @@ function InputWrapper(props) {
     type,
     label,
     name,
-    password,
     handleValidation,
     id,
     value,
@@ -16,9 +15,9 @@ function InputWrapper(props) {
 
   return (
     <div>
-      <label className={"form__label"} htmlFor={id}>{label}</label>
+      <label className="form__label" htmlFor={id}>{label}</label>
       <input type={type}
-             id={password}
+             id={id}
              onBlur={handleValidation}
              onChange={onChange}
              name={name}

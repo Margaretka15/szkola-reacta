@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 
-import {NumberInputStep, TextInputStep, SelectInputStep, Summary} from "../components/MultiStepForm/Steps";
+import {NumberInputWrapper, TextInputWrapper, SelectInputWrapper, FormSummary} from "../components/MultiStepForm";
 import FormButton from "../components/MultiStepForm/FormButton";
+
 
 function MultiStepForm() {
 
@@ -64,12 +65,20 @@ function MultiStepForm() {
   }
 
   const stepsToDisplay = {
-    1: <TextInputStep onChange={handleChange} value={formValues.name} name="name" id="name" label="Podaj imię"/>,
-    2: <NumberInputStep onChange={handleChange} value={formValues.age} name="age" id="age" label="Podaj wiek" min="1"
-                        max="100"/>,
-    3: <SelectInputStep onChange={handleChange} value={formValues.hobby} name="hobby" id="hobby"
-                        label="Wybierz swoje zainteresowania"/>,
-    4: <Summary values={formValues} isSend={isFormSend}/>
+    1: <TextInputWrapper onChange={handleChange} value={formValues.name} name="name" id="name" label="Podaj imię"/>,
+    2: <NumberInputWrapper onChange={handleChange} value={formValues.age} name="age" id="age" label="Podaj wiek" min="1"
+                           max="100"/>,
+    3: <SelectInputWrapper onChange={handleChange} value={formValues.hobby} name="hobby" id="hobby"
+                           label="Wybierz swoje zainteresowania">
+      <option disabled defaultValue value="">---</option>
+      <option value="sport">sport</option>
+      <option value="sztuka">sztuka</option>
+      <option value="muzyka">muzyka</option>
+      <option value="filmy">filmy</option>
+      <option value="książki">książki</option>
+      <option value="kajaki">kajaki</option>
+    </SelectInputWrapper>,
+    4: <FormSummary values={formValues} isSend={isFormSend}/>
   }
 
   const displayButtons = () => {
@@ -81,8 +90,7 @@ function MultiStepForm() {
           <FormButton position="left" label="Wstecz" handleClick={goToPreviousStep}/>
           <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>
         </>)
-      }
-      else {
+      } else {
         return <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>;
       }
     } else {

@@ -10,11 +10,12 @@
     border: 1px solid #626262;
     box-shadow: 2px 2px 5px rgba(140, 140, 140, 0.5);
     min-height: 250px;
-    height: 1px;  /* hehe czitowanie */
+    height: 1px; /* hehe czitowanie */
+
     display: flex;
     flex-direction: column;
-
 }
+
 
 .form__title {
     text-align: center;
@@ -24,28 +25,36 @@
     display: block;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 10px;
     height: 40px;
     padding: 0 10px;
-    }
+}
 
 .multi-step-form {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    position: relative;
 }
 
-.form__navigation-button {
+.button__wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.form__button {
     width: fit-content;
     padding: 0 10px;
 }
 
-.form__navigation-button--left {
+.form__button--left {
     float: left;
-
 }
 
-.form__navigation-button--right {
+.form__button--center {
+    margin: 0 auto;
+}
+
+.form__button--right {
     float: right;
 }
 
@@ -60,4 +69,12 @@
 
 .summary__button {
 
+}
+
+/* utils */
+.fit-content {
+    height: fit-content;
+}
+.margin-top--medium {
+    margin-top: 20px;
 }
