@@ -24,9 +24,10 @@ function MultiStepForm() {
       [name]: value
     })
   }
-
   const totalNumberOfSteps = 4;
 
+  // zastanawiam się, czy nie lepiej, żeby canGoToNextStep i canGoToPreviousStep
+  // były zmiennymi trzymanymi w stanie i ustawianymi w odpowiednich miejscach? Zostawiam pierwotną wersję.
   const canGoToNextStep = () => {
     return (stepNumber < totalNumberOfSteps)
   }
@@ -80,9 +81,10 @@ function MultiStepForm() {
           <FormButton position="left" label="Wstecz" handleClick={goToPreviousStep}/>
           <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>
         </>)
-
       }
-      return <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>;
+      else {
+        return <FormButton position="right" label="Dalej" handleClick={goToNextStep}/>;
+      }
     } else {
       if (isFormSend) {
         return <FormButton position="right" label="Wypełnij ponownie" handleClick={resetForm}/>;
@@ -95,7 +97,6 @@ function MultiStepForm() {
         )
       }
     }
-
   }
 
   return (

@@ -6,7 +6,7 @@
 .form__wrapper {
     margin: 20px;
     padding: 20px;
-    width: 50%;
+    width: 500px;
     border: 1px solid #626262;
     box-shadow: 2px 2px 5px rgba(140, 140, 140, 0.5);
     min-height: 250px;
