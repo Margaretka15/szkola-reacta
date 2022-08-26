@@ -78,7 +78,11 @@ function MultiStepForm() {
       <option value="książki">książki</option>
       <option value="kajaki">kajaki</option>
     </SelectInputWrapper>,
-    4: <FormSummary values={formValues} isSend={isFormSend}/>
+    4: <FormSummary values={formValues} isSend={isFormSend}>
+      <div>Imię: {formValues.name}</div>
+      <div>Wiek: {formValues.age}</div>
+      <div>Hobby: {formValues.hobby}</div>
+    </FormSummary>
   }
 
   const displayButtons = () => {

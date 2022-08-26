@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
+import {RegistrationForm} from "./Registration/RegistrationForm";
 
 function App() {
 
   return (
     <div className="App">
-     hh
-     hh
+     <RegistrationForm/>
     </div>
   );
 

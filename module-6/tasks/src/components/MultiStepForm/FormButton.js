@@ -6,7 +6,6 @@ function FormButton({position, handleClick, label}) {
     <button className={`form__button form__button--${position}`}
             type={"button"}
             onClick={handleClick}>{label}</button>
-
   )
 }
 
